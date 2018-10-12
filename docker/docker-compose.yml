@@ -1,0 +1,34 @@
+version: '3'
+services:
+  # Build the Drupal 8 image
+  # https://hub.docker.com/r/_/drupal/
+  drupal:
+    image: drupal:8.6-apache
+    # Environment variables
+    environment:
+      # Drupal settings
+      DRUPAL_PROFILE: standard
+      DRUPAL_SITE_NAME: Dockerapp
+      DRUPAL_USER: admin
+      DRUPAL_PASS: admin
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - drupal_modules:/var/www/html/modules
+      - drupal_profiles:/var/www/html/profiles
+      - drupal_themes:/var/www/html/themes
+      - drupal_sites:/var/www/html/sites
+    restart: always
+# MySQL Server
+  database:
+    image: mariadb:10
+    environment:
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+      MYSQL_DATABASE: dockerapp
+      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - "3306:3306"
+    restart: always
