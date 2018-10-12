@@ -24,8 +24,7 @@ services:
   database:
     image: mariadb:10
     environment:
-      MYSQL_USER: drupal
-      MYSQL_PASSWORD: drupal
+      MYSQL_USER: root
       MYSQL_DATABASE: dockerapp
       MYSQL_ROOT_PASSWORD: ''
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
