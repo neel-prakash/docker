@@ -1,0 +1,14 @@
+uuid: fa794c14-c3a4-475d-b03c-19c80c69418c
+name: 'Docker App'
+mail: Neel.Prakash@mindtree.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

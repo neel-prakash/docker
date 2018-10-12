@@ -1,0 +1,7 @@
+dockerform.docker_form:
+  path: '/docker-form'
+  defaults:
+    _form: '\Drupal\dockerform\Form\DockerContainerForm'
+    _title: 'Candidate Registration Form'
+  requirements:
+    _permission: 'access content'

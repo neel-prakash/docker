@@ -1,0 +1,5 @@
+name: Docker Form display
+description: Demonstrate form for Docker app
+package: Custom
+type: module
+core: 8.x
