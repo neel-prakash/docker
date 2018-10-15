@@ -14,20 +14,16 @@ services:
     build: .
     ports:
       - "8080:80"
-    volumes:
-      - drupal_modules:/var/www/html/modules
-      - drupal_profiles:/var/www/html/profiles
-      - drupal_themes:/var/www/html/themes
-      - drupal_sites:/var/www/html/sites
     restart: always
+
 # MySQL Server
   database:
     image: mariadb:10
-    environment:
-      MYSQL_USER: root
-      MYSQL_DATABASE: dockerapp
-      MYSQL_ROOT_PASSWORD: ''
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    ports:
-      - "3306:3306"
-    restart: always
+#    environment:
+#      MYSQL_USER: root
+#      MYSQL_DATABASE: dockerapp
+#      MYSQL_ROOT_PASSWORD: ''
+#      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+#    ports:
+#      - "3306:3306"
+#   restart: always
