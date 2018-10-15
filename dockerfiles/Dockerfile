@@ -1,5 +1,9 @@
 FROM drupal:8.6-apache
 
+COPY docker/sites/ /var/www/html/sites/
+COPY docker/modules/ /var/www/html/modules/
+COPY docker/themes/ /var/www/html/themes/
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
@@ -8,10 +12,10 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 RUN composer global require drush/drush && \
     ln -s /root/.composer/vendor/bin/drush /usr/bin/drush
 
-COPY docker/sites/ /var/www/html/sites/
-COPY docker/modules/ /var/www/html/modules/
-COPY docker/themes/ /var/www/html/themes/
-
+RUN apt-get update && apt-get install -y \
+    apache2 \
+    curl \
+    mysql-client
 
 RUN usermod -u 1000 www-data
 RUN usermod -a -G users www-data
